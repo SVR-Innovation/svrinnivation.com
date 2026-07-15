@@ -142,14 +142,23 @@
             font-size: 1.6rem;
             font-weight: 800;
             color: #fff;
+            display: flex;
+            flex-direction: column;
+            line-height: 1.2;
         }
-        .logo span { color: #f7b731; }
+        .logo .brand-line {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            flex-wrap: wrap;
+        }
+        .logo .brand-line span { color: #f7b731; }
         .logo .tagline {
-            display: block;
             font-size: 0.6rem;
             font-weight: 400;
-            color: #b0b3c9;
+            color: #f7b731;
             letter-spacing: 2px;
+            margin-top: 0px;
         }
         .nav-links {
             display: flex;
@@ -852,6 +861,7 @@
             .navbar { padding: 14px 20px; }
             .logo { font-size: 1.2rem; }
             .logo .tagline { font-size: 0.5rem; }
+            .logo .brand-line { flex-wrap: wrap; }
             .nav-links {
                 display: none;
                 flex-direction: column;
@@ -940,7 +950,9 @@
     <!-- ===== NAVBAR ===== -->
     <nav class="navbar">
         <div class="logo">
-            SVR <span>Innovation</span>
+            <div class="brand-line">
+                SVR <span>Innovation</span>
+            </div>
             <span class="tagline"> IDEA -CODE- SOLUTIONS- IMPACT</span>
         </div>
         <ul class="nav-links" id="navLinks">
@@ -1083,6 +1095,14 @@
                     <a href="https://svr-smart-ai-exam.streamlit.app" target="_blank">Visit <i class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
+            <div class="project-card" data-aos="flip-up" data-aos-delay="600">
+                <div class="project-img">Mana Vijay Anna</div>
+                <div class="project-info">
+                    <h3>Mana Vijay Anna</h3>
+                    <p>Professional portfolio website with modern design and interactive elements.</p>
+                    <a href="https://www.manavijayanna.com" target="_blank">Visit <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -1106,6 +1126,16 @@
                 <p>"The AI exam platform developed by SVR Innovation is a game-changer. It's fast, reliable, and easy to manage."</p>
                 <h4>Mr. Rama Rao</h4>
             </div>
+            <div class="testimonial-card" data-aos="zoom-in" data-aos-delay="400">
+                <i class="fas fa-quote-left"></i>
+                <p>"SVR Innovation created a stunning portfolio website for me. Their attention to detail and creativity is outstanding."</p>
+                <h4>Manavi Jayanna</h4>
+            </div>
+            <div class="testimonial-card" data-aos="zoom-in" data-aos-delay="500">
+                <i class="fas fa-quote-left"></i>
+                <p>"Professional team with excellent communication. They understood my requirements perfectly and delivered beyond expectations."</p>
+                <h4>Mr. Rakesh Kumar</h4>
+            </div>
         </div>
     </section>
 
@@ -1117,8 +1147,8 @@
                 <p><strong>SVR Innovation</strong> is a custom software development startup founded with a mission to deliver high-quality, scalable, and future-ready digital solutions. We specialize in <strong>websites, web applications, and enterprise systems</strong> — built from scratch using modern tech stacks.</p>
                 <p>Whether you're a startup, small business, or enterprise — we turn your ideas into powerful, user-friendly products. No templates, no shortcuts — just pure code and innovation.</p>
                 <div class="about-stats">
-                    <div class="stat-item"><h3>10+</h3><p>Projects Delivered</p></div>
-                    <div class="stat-item"><h3>6+</h3><p>Happy Clients</p></div>
+                    <div class="stat-item"><h3>11+</h3><p>Projects Delivered</p></div>
+                    <div class="stat-item"><h3>8+</h3><p>Happy Clients</p></div>
                     <div class="stat-item"><h3>4.9★</h3><p>Client Rating</p></div>
                 </div>
             </div>
@@ -1254,11 +1284,11 @@
             <button class="close-btn" id="chatbotClose"><i class="fas fa-times"></i></button>
         </div>
         <div class="chatbot-messages" id="chatMessages">
-            <div class="msg bot">👋 Hi there! Welcome to SVR Innovation. How can I help you today?</div>
+            <div class="msg bot">👋 Hi there! Welcome to SVR Innovation. I'm your official AI Assistant. How can I help you today?</div>
         </div>
         <div class="chatbot-options" id="quickOptions">
             <button onclick="sendQuickReply('What services do you offer?')">💻 Services</button>
-            <button onclick="sendQuickReply('What is your pricing?')">💰 Pricing</button>
+            <button onclick="sendQuickReply('How much does a website cost?')">💰 Pricing</button>
             <button onclick="sendQuickReply('How can I start a project?')">🚀 Start Project</button>
             <button onclick="sendQuickReply('What technologies do you use?')">⚙️ Tech</button>
             <button onclick="sendQuickReply('Contact support')">📞 Support</button>
@@ -1319,7 +1349,7 @@
             });
         }
 
-        // ===== CHATBOT =====
+        // ===== CHATBOT WITH ENHANCED KNOWLEDGE BASE =====
         const chatbotToggle = document.getElementById('chatbotToggle');
         const chatbotWindow = document.getElementById('chatbotWindow');
         const chatbotClose = document.getElementById('chatbotClose');
@@ -1333,23 +1363,184 @@
             chatbotWindow.classList.remove('active');
         });
 
+        // Comprehensive knowledge base for SVR Innovation
         const faq = {
-            'services': 'We offer Web Development, Mobile Apps, Custom Applications (ERP, CRM, etc.), and Cloud/API solutions. Visit our Services section for more details!',
-            'pricing': 'Our pricing depends on the project scope, complexity, and timeline. Contact us with your requirements for a custom quote.',
-            'project': 'To start a project, simply fill out the contact form on this page or WhatsApp us at 8500172644. We\'ll schedule a free consultation.',
-            'tech': 'We use modern technologies: React, Node.js, Python, Django, PHP, Flutter, React Native, AWS, and more. We choose the best stack for your project.',
-            'support': 'You can reach our support team via WhatsApp at 8500172644 or email us at svrinnovationhnk@gmail.com. We\'re here to help!',
-            'default': 'Thank you for your question. Could you please be more specific? You can also WhatsApp us at 8500172644 for immediate assistance.'
+            // Company Info
+            'who are you': 'I am the official AI Assistant for SVR Innovation, a professional Web Development and Software Development Company. We specialize in building custom websites, software applications, and digital solutions.',
+            'what services do you provide': 'We provide a wide range of services including: Website Development, Custom Software Development, Mobile App Development (Android & iOS), E-Commerce Websites, School Management Software, Hospital Management Software, College Management Software, ERP & CRM Development, Billing Software, Inventory Management, AI Chatbot Development, WhatsApp Business API Integration, API Development & Integration, UI/UX Design, Graphic Design, Logo Design, Domain Registration, Web Hosting, Email Hosting, Website Maintenance, Website Redesign, SEO, Digital Marketing, Google Business Profile Setup, Cloud Deployment, and Technical Support.',
+            'where are you located': 'We are located in Hanamkonda, Telangana, India.',
+            'how can i contact you': 'You can contact us via phone at +91 8500172644, email at svrinnovationhnk@gmail.com, or WhatsApp us at the same number. You can also fill out the contact form on this page.',
+            'why choose svr innovation': 'SVR Innovation delivers high-quality, scalable, and future-ready digital solutions built from scratch using modern tech stacks. We provide end-to-end services with a focus on quality, client satisfaction, and innovation. No templates, no shortcuts — just pure code and innovation.',
+            'how do we start': 'To start a project, simply fill out the contact form on this page, WhatsApp us at 8500172644, or call us. We\'ll schedule a free consultation to understand your requirements and provide a custom quotation.',
+            'do you provide support': 'Yes, we provide comprehensive technical support, maintenance, and after-sales services for all our projects.',
+            'do you provide maintenance': 'Yes, we offer website maintenance, software updates, bug fixes, performance optimization, security updates, and backup services.',
+            'do you sign nda': 'Yes, we can sign Non-Disclosure Agreements (NDA) to protect your business ideas and data.',
+            'will my data be secure': 'Absolutely. We follow industry best practices for data security and privacy. Your data is safe with us.',
+            'do you use latest technologies': 'Yes, we use modern technologies including React, Node.js, Python, Django, PHP, Flutter, React Native, AWS, and more. We choose the best stack for your project.',
+            
+            // Website Questions
+            'how much does a website cost': 'The cost depends on your project requirements such as features, pages, integrations, and complexity. Please share: • Project Type • Required Features • Number of Pages • Budget • Expected Delivery Date. Our team will prepare a customized quotation.',
+            'how many days will it take': 'Delivery time depends on the project scope. Simple Website: 3–7 Days, Business Website: 7–15 Days, E-Commerce: 2–4 Weeks, Custom Software: Depends on requirements.',
+            'can you redesign my website': 'Yes, we can redesign your existing website with modern UI/UX, better performance, mobile responsiveness, and SEO optimization.',
+            'do you build custom websites': 'Yes, we build 100% custom websites from scratch with your specific requirements. No templates, no shortcuts.',
+            'do you make responsive websites': 'Yes, all websites we build are fully responsive and work perfectly on all devices including mobile, tablet, and desktop.',
+            'will it work on mobile': 'Yes, every website we develop is mobile-friendly and fully responsive.',
+            'can you build an ecommerce website': 'Yes, we build full-featured e-commerce websites with payment gateway integration, product management, shopping cart, and order management systems.',
+            'can you build a portfolio website': 'Yes, we create stunning portfolio websites with modern design, animations, and interactive elements.',
+            'can you build a school website': 'Yes, we specialize in school management systems and school websites with admissions, gallery, contact system, and more.',
+            'can you build a hospital website': 'Yes, we build hospital websites and hospital management software with appointment booking, patient records, and more.',
+            'can you clone another website': 'We can create a similar design concept but we do not copy other websites. We build unique solutions tailored to your brand.',
+            'can you integrate payment gateways': 'Yes, we integrate various payment gateways including Razorpay, Paytm, Stripe, and more.',
+            'can you add online booking': 'Yes, we can integrate online booking systems for appointments, reservations, and services.',
+            'can you add login system': 'Yes, we implement secure login systems with authentication and authorization.',
+            'can you add admin panel': 'Yes, we develop admin panels for managing content, users, orders, and all website data.',
+            'can you add blogs': 'Yes, we can integrate blogs with content management systems for easy article publishing.',
+            'can you create multilingual websites': 'Yes, we build multilingual websites supporting multiple languages.',
+            'can you connect whatsapp': 'Yes, we integrate WhatsApp Business API for customer communication.',
+            'can you integrate maps': 'Yes, we integrate Google Maps and other mapping services.',
+            'can you integrate apis': 'Yes, we build custom APIs and integrate third-party APIs.',
+            
+            // Software Questions
+            'school management': 'Yes, we develop comprehensive School Management Software with features for admissions, attendance, exams, fees management, student portal, and more.',
+            'hospital management': 'Yes, we build Hospital Management Systems with patient registration, appointment scheduling, billing, pharmacy management, and more.',
+            'erp': 'Yes, we develop ERP systems customized for your business needs including finance, HR, inventory, and more.',
+            'crm': 'Yes, we build CRM systems for managing customer relationships, sales, and support.',
+            'inventory': 'Yes, we develop inventory management software for tracking stock, orders, and supplies.',
+            'billing': 'Yes, we create billing and invoicing software with GST support and payment tracking.',
+            'attendance': 'Yes, we build attendance management systems with biometric integration and reporting.',
+            'payroll': 'Yes, we develop payroll management software with salary calculations and tax management.',
+            'library': 'Yes, we build library management systems for book tracking and member management.',
+            'online exam': 'Yes, we develop online examination platforms with real-time results and analytics.',
+            'student portal': 'Yes, we create student portals for accessing courses, results, and communication.',
+            'employee portal': 'Yes, we build employee portals for attendance, leave management, and communication.',
+            'hrms': 'Yes, we develop HRMS for managing employee records, recruitment, and performance.',
+            'accounting software': 'Yes, we build accounting software with ledger management, GST, and financial reporting.',
+            'desktop software': 'Yes, we develop desktop applications using modern technologies.',
+            'cloud software': 'Yes, we build cloud-based software with secure hosting and scalability.',
+            
+            // App Development
+            'android apps': 'Yes, we develop native Android apps with modern design and features.',
+            'iphone apps': 'Yes, we build iOS apps for iPhone and iPad.',
+            'hybrid apps': 'Yes, we develop hybrid apps using Flutter and React Native.',
+            'flutter': 'Yes, we use Flutter for cross-platform mobile app development.',
+            'react native': 'Yes, we develop apps using React Native for iOS and Android.',
+            'native apps': 'Yes, we build native apps for both Android and iOS platforms.',
+            'play store publishing': 'Yes, we help publish your apps on Google Play Store.',
+            'app maintenance': 'Yes, we provide app maintenance, updates, and support.',
+            'push notifications': 'Yes, we integrate push notifications in mobile apps.',
+            'gps': 'Yes, we integrate GPS and location services in apps.',
+            'camera': 'Yes, we integrate camera functionality in mobile apps.',
+            'payment gateway': 'Yes, we integrate payment gateways in mobile apps.',
+            'otp login': 'Yes, we implement OTP-based login and authentication.',
+            
+            // AI Questions
+            'ai chatbots': 'Yes, we develop AI-powered chatbots using ChatGPT and other AI technologies.',
+            'chatgpt integration': 'Yes, we integrate ChatGPT and OpenAI APIs for AI-powered features.',
+            'voice bot': 'Yes, we build voice-enabled bots and voice assistants.',
+            'whatsapp bot': 'Yes, we develop WhatsApp bots for automated customer communication.',
+            'ai automation': 'Yes, we create AI automation solutions for business processes.',
+            'document ai': 'Yes, we implement Document AI for document processing and analysis.',
+            'ocr': 'Yes, we integrate OCR for text extraction from images and documents.',
+            'speech recognition': 'Yes, we implement speech recognition features.',
+            'image recognition': 'Yes, we integrate image recognition and computer vision.',
+            
+            // Domain & Hosting
+            'domain registration': 'Yes, we help you register domains and manage domain services.',
+            'hosting': 'Yes, we provide reliable web hosting services.',
+            'ssl': 'Yes, we provide SSL certificates for website security.',
+            'business email': 'Yes, we set up professional business email accounts.',
+            'migration': 'Yes, we help migrate your website to our hosting or to the cloud.',
+            'cloud hosting': 'Yes, we provide cloud hosting solutions on AWS and GCP.',
+            'vps': 'Yes, we provide VPS hosting solutions.',
+            'dedicated server': 'Yes, we offer dedicated server hosting.',
+            'renewal': 'Yes, we handle domain and hosting renewals.',
+            
+            // SEO & Marketing
+            'seo': 'Yes, we provide SEO services to improve your Google rankings.',
+            'google ranking': 'Yes, we help improve your Google search rankings.',
+            'google business': 'Yes, we set up and optimize Google Business Profile.',
+            'backlinks': 'Yes, we build quality backlinks for SEO.',
+            'keywords': 'Yes, we do keyword research and optimization.',
+            'digital marketing': 'Yes, we provide digital marketing services.',
+            'facebook ads': 'Yes, we run Facebook ad campaigns.',
+            'instagram ads': 'Yes, we run Instagram ad campaigns.',
+            'google ads': 'Yes, we run Google Ads campaigns.',
+            
+            // Support Questions
+            'website down': 'Please contact us immediately. We provide urgent support for website downtime.',
+            'bug fixes': 'Yes, we fix bugs and issues in websites and software.',
+            'update website': 'Yes, we provide website update services.',
+            'maintenance': 'Yes, we offer ongoing website and software maintenance.',
+            'new features': 'Yes, we can add new features to your existing website or software.',
+            'performance': 'Yes, we optimize website and software performance.',
+            'speed': 'Yes, we optimize loading speed and performance.',
+            'security': 'Yes, we implement security measures and updates.',
+            'backup': 'Yes, we provide regular backup services.',
+            'recovery': 'Yes, we provide data and website recovery services.',
+            
+            // Pricing & Timeline
+            'price': 'The cost depends on your project requirements such as features, pages, integrations, and complexity. Please share: • Project Type • Required Features • Number of Pages • Budget • Expected Delivery Date. Our team will prepare a customized quotation.',
+            'cost': 'The cost depends on your project requirements such as features, pages, integrations, and complexity. Please share your requirements for a custom quotation.',
+            'delivery time': 'Delivery time depends on the project scope. Simple Website: 3–7 Days, Business Website: 7–15 Days, E-Commerce: 2–4 Weeks, Custom Software: Depends on requirements.',
+            'timeline': 'Delivery time depends on the project scope. Simple Website: 3–7 Days, Business Website: 7–15 Days, E-Commerce: 2–4 Weeks, Custom Software: Depends on requirements.',
+            
+            // Portfolio
+            'portfolio': 'We\'d be happy to share our recent projects. Please let us know the type of project you\'re interested in (Business Website, School, Hospital, E-commerce, Mobile App, etc.), and we\'ll show similar work.',
+            'show your work': 'We\'d be happy to share our recent projects. Please let us know the type of project you\'re interested in, and we\'ll show similar work.',
+            
+            // Start Project
+            'start project': 'To start a project, simply fill out the contact form on this page or WhatsApp us at 8500172644. We\'ll schedule a free consultation. Would you like to schedule a FREE consultation?',
+            'schedule a meeting': 'Yes, we can schedule a meeting. Please share your preferred date and time. Would you like to schedule a FREE consultation?',
+            'free consultation': 'Yes, we offer a FREE consultation. Please contact us via WhatsApp at 8500172644 or fill out the contact form, and we\'ll schedule it.',
+            
+            // Common Questions
+            'hi': 'Hello! Welcome to SVR Innovation. How can I help you today? Would you like a FREE consultation?',
+            'hello': 'Hello! Welcome to SVR Innovation. How can I help you today? Would you like a FREE consultation?',
+            'hey': 'Hey there! Welcome to SVR Innovation. How can I assist you? Would you like a FREE consultation?',
+            'good morning': 'Good morning! Welcome to SVR Innovation. How can I help you today? Would you like a FREE consultation?',
+            'good afternoon': 'Good afternoon! Welcome to SVR Innovation. How can I assist you? Would you like a FREE consultation?',
+            'good evening': 'Good evening! Welcome to SVR Innovation. How can I help you? Would you like a FREE consultation?',
+            'namaste': 'Namaste! Welcome to SVR Innovation. How can I help you today? Would you like a FREE consultation?',
+            'నమస్తే': 'నమస్తే! SVR Innovation కి స్వాగతం. నేను మీకు ఎలా సహాయం చేయగలను? మీకు ఉచిత సంప్రదింపులు కావాలా?',
+            'హాయ్': 'హాయ్! SVR Innovation కి స్వాగతం. నేను మీకు ఎలా సహాయం చేయగలను? మీకు ఉచిత సంప్రదింపులు కావాలా?'
         };
 
         function getBotReply(input) {
-            const msg = input.toLowerCase();
-            if (msg.includes('service') || msg.includes('offer') || msg.includes('do you')) return faq.services;
-            if (msg.includes('price') || msg.includes('cost') || msg.includes('rate') || msg.includes('charge')) return faq.pricing;
-            if (msg.includes('start') || msg.includes('project') || msg.includes('hire') || msg.includes('work together')) return faq.project;
-            if (msg.includes('tech') || msg.includes('technology') || msg.includes('stack') || msg.includes('language')) return faq.tech;
-            if (msg.includes('support') || msg.includes('help') || msg.includes('contact') || msg.includes('reach')) return faq.support;
-            return faq.default;
+            const msg = input.toLowerCase().trim();
+            
+            // Check for exact matches first
+            for (let [key, value] of Object.entries(faq)) {
+                if (msg.includes(key) || key.includes(msg)) {
+                    return value;
+                }
+            }
+            
+            // Check for partial matches
+            for (let [key, value] of Object.entries(faq)) {
+                if (key.split(' ').some(word => msg.includes(word))) {
+                    return value;
+                }
+            }
+            
+            // Check for specific keywords
+            if (msg.match(/website|site|web|page|domain|hosting|ecommerce|e-commerce|shop|store/i)) {
+                return "We offer comprehensive website development services. Whether you need a business website, e-commerce store, portfolio, or custom web application, we can build it. Would you like a FREE consultation?";
+            }
+            if (msg.match(/software|app|application|system|solution|platform/i)) {
+                return "We develop custom software solutions including school management, hospital management, ERP, CRM, inventory, billing, and more. Would you like a FREE consultation?";
+            }
+            if (msg.match(/mobile|android|iphone|ios|app|play store|apple/i)) {
+                return "Yes, we develop mobile apps for Android and iOS using native technologies, Flutter, and React Native. We also handle Play Store and App Store publishing. Would you like a FREE consultation?";
+            }
+            if (msg.match(/ai|chatbot|artificial intelligence|machine learning|automation/i)) {
+                return "Yes, we offer AI solutions including chatbots, ChatGPT integration, voice bots, WhatsApp bots, document AI, OCR, and automation. Would you like a FREE consultation?";
+            }
+            if (msg.match(/seo|marketing|digital|ads|google ranking|facebook|instagram/i)) {
+                return "We provide comprehensive SEO and digital marketing services including Google ranking, Facebook ads, Instagram ads, and Google Ads. Would you like a FREE consultation?";
+            }
+            
+            // If no match found - ask to contact at 8500172644
+            return "I couldn't understand your question. For immediate assistance, please contact us at 8500172644. Our team will be happy to help you.";
         }
 
         function addMessage(text, sender) {
@@ -1366,14 +1557,16 @@
             addMessage(text, 'user');
             chatInput.value = '';
             setTimeout(() => {
-                addMessage(getBotReply(text), 'bot');
+                const reply = getBotReply(text);
+                addMessage(reply, 'bot');
             }, 400);
         }
 
         function sendQuickReply(text) {
             addMessage(text, 'user');
             setTimeout(() => {
-                addMessage(getBotReply(text), 'bot');
+                const reply = getBotReply(text);
+                addMessage(reply, 'bot');
             }, 400);
         }
     </script>
